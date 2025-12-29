@@ -1,0 +1,42 @@
+[package]
+name = "corroded"
+version = "0.1.0"
+edition = "2021"
+description = "A library that bypasses Rust's safety features. For educational purposes only."
+keywords = ["unsafe", "educational", "memory-safety"]
+license = "MIT"
+readme = "README.md"
+
+[lib]
+name = "corroded"
+path = "src/lib.rs"
+
+[[example]]
+name = "null_pointer"
+path = "examples/null_pointer.rs"
+
+[[example]]
+name = "type_punning"
+path = "examples/type_punning.rs"
+
+[[example]]
+name = "use_after_free"
+path = "examples/use_after_free.rs"
+
+[[example]]
+name = "buffer_overflow"
+path = "examples/buffer_overflow.rs"
+
+[[example]]
+name = "data_race"
+path = "examples/data_race.rs"
+
+[[example]]
+name = "aliasing"
+path = "examples/aliasing.rs"
+
+[[example]]
+name = "all_together"
+path = "examples/all_together.rs"
+
+[dependencies]
