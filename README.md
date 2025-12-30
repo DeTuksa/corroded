@@ -48,7 +48,7 @@ let dangling: &'static i32 = {
 
 Rust's "aliasing XOR mutability" rule assumes you can't handle two mutable pointers to the same data. "What if they both write?" Then they both write.The last one wins. That's how memory should work.
 
-`clone_mut()` gives you multiple `&mut` to the same location. The compiler assumes mutable references are unique and optimizes based on that that. When you break the assumption, the optimizer generates wrong code. Compiler skill issue.
+`clone_mut()` gives you multiple `&mut` to the same location. The compiler assumes mutable references are unique and optimizes based on that. When you break the assumption, the optimizer generates wrong code. Compiler skill issue.
 
 ```rust
 let mut x = 42;
