@@ -1,13 +1,13 @@
-use corroded::buffer::*;
+use corroded_rs::buffer::*;
 
 fn main() {
     println!("=== Buffer Overflow Demo ===\n");
 
-    let mut v = CursedVec::with_capacity(20);
+    let mut v = CorrodedVec::with_capacity(20);
     v.push(10);
     v.push(20);
     v.push(30);
-    println!("CursedVec len={}, capacity={}", v.len(), v.capacity());
+    println!("CorrodedVec len={}, capacity={}", v.len(), v.capacity());
 
     for i in 0..v.len() {
         println!("  v[{}] = {}", i, v[i]);

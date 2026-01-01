@@ -1,23 +1,23 @@
 use std::ops::{Index, IndexMut};
 use std::ptr;
 
-pub struct CursedVec<T> {
+pub struct CorrodedVec<T> {
     inner: Vec<T>,
 }
 
-impl<T> CursedVec<T> {
+impl<T> CorrodedVec<T> {
     pub fn new() -> Self {
-        CursedVec { inner: Vec::new() }
+        CorrodedVec { inner: Vec::new() }
     }
 
     pub fn with_capacity(capacity: usize) -> Self {
-        CursedVec {
+        CorrodedVec {
             inner: Vec::with_capacity(capacity),
         }
     }
 
     pub fn from_vec(v: Vec<T>) -> Self {
-        CursedVec { inner: v }
+        CorrodedVec { inner: v }
     }
 
     pub fn push(&mut self, value: T) {
@@ -65,13 +65,13 @@ impl<T> CursedVec<T> {
     }
 }
 
-impl<T> Default for CursedVec<T> {
+impl<T> Default for CorrodedVec<T> {
     fn default() -> Self {
         Self::new()
     }
 }
 
-impl<T> Index<usize> for CursedVec<T> {
+impl<T> Index<usize> for CorrodedVec<T> {
     type Output = T;
 
     fn index(&self, index: usize) -> &Self::Output {
@@ -79,15 +79,15 @@ impl<T> Index<usize> for CursedVec<T> {
     }
 }
 
-impl<T> IndexMut<usize> for CursedVec<T> {
+impl<T> IndexMut<usize> for CorrodedVec<T> {
     fn index_mut(&mut self, index: usize) -> &mut Self::Output {
         unsafe { &mut *self.inner.as_mut_ptr().add(index) }
     }
 }
 
-impl<T: Clone> From<&[T]> for CursedVec<T> {
+impl<T: Clone> From<&[T]> for CorrodedVec<T> {
     fn from(slice: &[T]) -> Self {
-        CursedVec {
+        CorrodedVec {
             inner: slice.to_vec(),
         }
     }
@@ -147,7 +147,9 @@ impl<T, const N: usize> CursedArray<T, N> {
 
 impl<T: Default + Copy, const N: usize> Default for CursedArray<T, N> {
     fn default() -> Self {
-        CursedArray { inner: [T::default(); N] }
+        CursedArray {
+            inner: [T::default(); N],
+        }
     }
 }
 
