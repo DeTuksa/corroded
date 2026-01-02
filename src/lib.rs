@@ -15,6 +15,7 @@ pub mod null;
 pub mod race;
 pub mod transmute;
 pub mod uninit;
+pub mod sync;
 
 pub mod prelude {
     pub use crate::aliasing::*;
