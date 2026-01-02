@@ -1,4 +1,6 @@
-use std::cell::UnsafeCell;
+use core::cell::UnsafeCell;
+
+use alloc::vec::Vec;
 
 pub struct RacyCell<T> {
     inner: UnsafeCell<T>,
@@ -51,7 +53,7 @@ impl<T> RacyRefCell<T> {
     }
 
     pub fn replace(&self, val: T) -> T {
-        std::mem::replace(self.borrow_mut(), val)
+        core::mem::replace(self.borrow_mut(), val)
     }
 
     pub fn into_inner(self) -> T {
