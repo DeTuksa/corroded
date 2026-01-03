@@ -27,4 +27,5 @@ pub mod prelude {
     pub use crate::race::*;
     pub use crate::transmute::*;
     pub use crate::uninit::*;
+    pub use crate::sync::*;
 }

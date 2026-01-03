@@ -1,4 +1,4 @@
-use std::{hint::black_box, thread::{self, JoinHandle}};
+use std::{thread::{self, JoinHandle}};
 use corroded_rs::sync::RelaxedMutex;
 
 static STATE: RelaxedMutex<u32> = RelaxedMutex::new(0);
